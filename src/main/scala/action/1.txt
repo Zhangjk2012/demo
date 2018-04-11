@@ -1,0 +1,415 @@
+[[syntax trees at end of                    parser]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends scala.AnyRef {
+    def $init$() = {
+      ()
+    };
+    def test = println("========")
+  };
+  abstract trait TestTrait2 extends TestTrait1 {
+    def $init$() = {
+      ()
+    };
+    override def test = println("++++++++++")
+  };
+  class TestTrait extends TestTrait1 with TestTrait2 {
+    def <init>() = {
+      super.<init>();
+      ()
+    };
+    <empty>
+  };
+  object AbstractFieldsDemo extends App {
+    def <init>() = {
+      super.<init>();
+      ()
+    };
+    val t = new TestTrait();
+    t.test
+  }
+}
+
+[[syntax trees at end of                     namer]] // Trait.scala: tree is unchanged since parser
+[[syntax trees at end of            packageobjects]] // Trait.scala: tree is unchanged since parser
+[[syntax trees at end of                     typer]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends scala.AnyRef {
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    };
+    def test: Unit = scala.Predef.println("========")
+  };
+  abstract trait TestTrait2 extends AnyRef with action.TestTrait1 {
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    };
+    override def test: Unit = scala.Predef.println("++++++++++")
+  };
+  class TestTrait extends AnyRef with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      ()
+    };
+    <empty>
+  };
+  object AbstractFieldsDemo extends AnyRef with App {
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      ()
+    };
+    private[this] val t: action.TestTrait = new TestTrait();
+    <stable> <accessor> def t: action.TestTrait = AbstractFieldsDemo.this.t;
+    AbstractFieldsDemo.this.t.test
+  }
+}
+
+[[syntax trees at end of                    patmat]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends scala.AnyRef {
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    };
+    def test: Unit = scala.Predef.println("========")
+  };
+  abstract trait TestTrait2 extends AnyRef with action.TestTrait1 {
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    };
+    override def test: Unit = scala.Predef.println("++++++++++")
+  };
+  class TestTrait extends AnyRef with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends AnyRef with App {
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      ()
+    };
+    private[this] val t: action.TestTrait = new TestTrait();
+    <stable> <accessor> def t: action.TestTrait = AbstractFieldsDemo.this.t;
+    AbstractFieldsDemo.this.t.test
+  }
+}
+
+[[syntax trees at end of            superaccessors]] // Trait.scala: tree is unchanged since patmat
+[[syntax trees at end of                extmethods]] // Trait.scala: tree is unchanged since patmat
+[[syntax trees at end of                   pickler]] // Trait.scala: tree is unchanged since patmat
+[[syntax trees at end of                 refchecks]] // Trait.scala: tree is unchanged since patmat
+[[syntax trees at end of                   uncurry]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    };
+    def test(): Unit = scala.Predef.println("========")
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    };
+    override def test(): Unit = scala.Predef.println("++++++++++")
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      ()
+    };
+    private[this] val t: action.TestTrait = new action.TestTrait();
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    AbstractFieldsDemo.this.t().test()
+  }
+}
+
+[[syntax trees at end of                    fields]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    };
+    def test(): Unit = scala.Predef.println("========")
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    };
+    override def test(): Unit = scala.Predef.println("++++++++++")
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    @deprecatedOverriding("executionStart should not be overridden", "2.11.0") override <stable> <accessor> def executionStart(): Long = AbstractFieldsDemo.this.executionStart.asInstanceOf[Long]();
+    private[this] val executionStart: Long = _;
+    override <accessor> def _args(): Array[String] = AbstractFieldsDemo.this._args.asInstanceOf[Array[String]]();
+    private[this] var _args: Array[String] = _;
+    override <accessor> def _args_=(x$1: Array[String]): Unit = AbstractFieldsDemo.this._args = x$1.asInstanceOf[Array[String]]();
+    override <stable> <accessor> def initCode(): scala.collection.mutable.ListBuffer[() => Unit] = AbstractFieldsDemo.this.initCode.asInstanceOf[scala.collection.mutable.ListBuffer[() => Unit]]();
+    private[this] val initCode: scala.collection.mutable.ListBuffer[() => Unit] = _;
+    override <accessor> protected[this] def scala$App$_setter_$executionStart_=(x$1: Long): Unit = AbstractFieldsDemo.this.executionStart = x$1.asInstanceOf[Long]();
+    final override <accessor> protected[this] def initCode_=(x$1: scala.collection.mutable.ListBuffer[() => Unit]): Unit = AbstractFieldsDemo.this.initCode = x$1.asInstanceOf[scala.collection.mutable.ListBuffer[() => Unit]]();
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      ()
+    };
+    private[this] val t: action.TestTrait = new action.TestTrait();
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    AbstractFieldsDemo.this.t().test()
+  }
+}
+
+[[syntax trees at end of                 tailcalls]] // Trait.scala: tree is unchanged since fields
+[[syntax trees at end of                specialize]] // Trait.scala: tree is unchanged since fields
+[[syntax trees at end of             explicitouter]] // Trait.scala: tree is unchanged since fields
+[[syntax trees at end of                   erasure]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    };
+    def test(): Unit = scala.Predef.println("========")
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    };
+    override def test(): Unit = scala.Predef.println("++++++++++")
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      TestTrait.super./*TestTrait1*/$init$();
+      TestTrait.super./*TestTrait2*/$init$();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    @deprecatedOverriding("executionStart should not be overridden", "2.11.0") override <stable> <accessor> def executionStart(): Long = (AbstractFieldsDemo.this.executionStart: Long);
+    private[this] val executionStart: Long = _;
+    override <accessor> def _args(): Array[String] = (AbstractFieldsDemo.this._args: Array[String]);
+    private[this] var _args: Array[String] = _;
+    override <accessor> def _args_=(x$1: Array[String]): Unit = AbstractFieldsDemo.this._args = (x$1: Array[String]);
+    override <stable> <accessor> def initCode(): scala.collection.mutable.ListBuffer = (AbstractFieldsDemo.this.initCode: scala.collection.mutable.ListBuffer);
+    private[this] val initCode: scala.collection.mutable.ListBuffer = _;
+    override <accessor> protected[this] def scala$App$_setter_$executionStart_=(x$1: Long): Unit = AbstractFieldsDemo.this.executionStart = (x$1: Long);
+    final override <accessor> protected[this] def initCode_=(x$1: scala.collection.mutable.ListBuffer): Unit = AbstractFieldsDemo.this.initCode = (x$1: scala.collection.mutable.ListBuffer);
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      AbstractFieldsDemo.super./*App*/$init$();
+      ()
+    };
+    private[this] val t: action.TestTrait = new action.TestTrait();
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    AbstractFieldsDemo.this.t().test()
+  }
+}
+
+[[syntax trees at end of               posterasure]] // Trait.scala: tree is unchanged since erasure
+[[syntax trees at end of                lambdalift]] // Trait.scala: tree is unchanged since erasure
+[[syntax trees at end of              constructors]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def test(): Unit = scala.Predef.println("========");
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    }
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    override def test(): Unit = scala.Predef.println("++++++++++");
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    }
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      TestTrait.super./*TestTrait1*/$init$();
+      TestTrait.super./*TestTrait2*/$init$();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    @deprecatedOverriding("executionStart should not be overridden", "2.11.0") override <stable> <accessor> def executionStart(): Long = (AbstractFieldsDemo.this.executionStart: Long);
+    private[this] val executionStart: Long = _;
+    override <accessor> def _args(): Array[String] = (AbstractFieldsDemo.this._args: Array[String]);
+    private[this] var _args: Array[String] = _;
+    override <accessor> def _args_=(x$1: Array[String]): Unit = AbstractFieldsDemo.this._args = (x$1: Array[String]);
+    override <stable> <accessor> def initCode(): scala.collection.mutable.ListBuffer = (AbstractFieldsDemo.this.initCode: scala.collection.mutable.ListBuffer);
+    private[this] val initCode: scala.collection.mutable.ListBuffer = _;
+    override <accessor> protected[this] def scala$App$_setter_$executionStart_=(x$1: Long): Unit = AbstractFieldsDemo.this.executionStart = (x$1: Long);
+    final override <accessor> protected[this] def initCode_=(x$1: scala.collection.mutable.ListBuffer): Unit = AbstractFieldsDemo.this.initCode = (x$1: scala.collection.mutable.ListBuffer);
+    private[this] val t: action.TestTrait = _;
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    final <synthetic> def delayedEndpoint$action$AbstractFieldsDemo$1: Unit = {
+      AbstractFieldsDemo.this.t = new action.TestTrait();
+      AbstractFieldsDemo.this.t().test();
+      ()
+    };
+    final <synthetic> class delayedInit$body extends runtime.AbstractFunction0 {
+      <paramaccessor> private[this] val $outer: action.AbstractFieldsDemo.type = _;
+      final def apply(): Object = {
+        delayedInit$body.this.$outer.delayedEndpoint$action$AbstractFieldsDemo$1();
+        scala.runtime.BoxedUnit.UNIT
+      };
+      def <init>($outer: action.AbstractFieldsDemo.type): action.AbstractFieldsDemo.delayedInit$body = {
+        if ($outer.eq(null))
+          throw null
+        else
+          delayedInit$body.this.$outer = $outer;
+        delayedInit$body.super.<init>();
+        ()
+      }
+    };
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      AbstractFieldsDemo.super./*App*/$init$();
+      AbstractFieldsDemo.this.delayedInit(new action.AbstractFieldsDemo.delayedInit$body(AbstractFieldsDemo.this));
+      ()
+    }
+  }
+}
+
+[[syntax trees at end of                   flatten]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def test(): Unit = scala.Predef.println("========");
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    }
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    override def test(): Unit = scala.Predef.println("++++++++++");
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    }
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      TestTrait.super./*TestTrait1*/$init$();
+      TestTrait.super./*TestTrait2*/$init$();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    @deprecatedOverriding("executionStart should not be overridden", "2.11.0") override <stable> <accessor> def executionStart(): Long = (AbstractFieldsDemo.this.executionStart: Long);
+    private[this] val executionStart: Long = _;
+    override <accessor> def _args(): Array[String] = (AbstractFieldsDemo.this._args: Array[String]);
+    private[this] var _args: Array[String] = _;
+    override <accessor> def _args_=(x$1: Array[String]): Unit = AbstractFieldsDemo.this._args = (x$1: Array[String]);
+    override <stable> <accessor> def initCode(): scala.collection.mutable.ListBuffer = (AbstractFieldsDemo.this.initCode: scala.collection.mutable.ListBuffer);
+    private[this] val initCode: scala.collection.mutable.ListBuffer = _;
+    override <accessor> protected[this] def scala$App$_setter_$executionStart_=(x$1: Long): Unit = AbstractFieldsDemo.this.executionStart = (x$1: Long);
+    final override <accessor> protected[this] def initCode_=(x$1: scala.collection.mutable.ListBuffer): Unit = AbstractFieldsDemo.this.initCode = (x$1: scala.collection.mutable.ListBuffer);
+    private[this] val t: action.TestTrait = _;
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    final <synthetic> def delayedEndpoint$action$AbstractFieldsDemo$1: Unit = {
+      AbstractFieldsDemo.this.t = new action.TestTrait();
+      AbstractFieldsDemo.this.t().test();
+      ()
+    };
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      AbstractFieldsDemo.super./*App*/$init$();
+      AbstractFieldsDemo.this.delayedInit(new action.AbstractFieldsDemo$delayedInit$body(AbstractFieldsDemo.this));
+      ()
+    }
+  };
+  final <synthetic> class AbstractFieldsDemo$delayedInit$body extends runtime.AbstractFunction0 {
+    <paramaccessor> private[this] val $outer: action.AbstractFieldsDemo.type = _;
+    final def apply(): Object = {
+      AbstractFieldsDemo$delayedInit$body.this.$outer.delayedEndpoint$action$AbstractFieldsDemo$1();
+      scala.runtime.BoxedUnit.UNIT
+    };
+    def <init>($outer: action.AbstractFieldsDemo.type): action.AbstractFieldsDemo$delayedInit$body = {
+      if ($outer.eq(null))
+        throw null
+      else
+        AbstractFieldsDemo$delayedInit$body.this.$outer = $outer;
+      AbstractFieldsDemo$delayedInit$body.super.<init>();
+      ()
+    }
+  }
+}
+
+[[syntax trees at end of                     mixin]] // Trait.scala
+package action {
+  abstract trait TestTrait1 extends Object {
+    def test(): Unit = scala.Predef.println("========");
+    def /*TestTrait1*/$init$(): Unit = {
+      ()
+    }
+  };
+  abstract trait TestTrait2 extends Object with action.TestTrait1 {
+    override def test(): Unit = scala.Predef.println("++++++++++");
+    def /*TestTrait2*/$init$(): Unit = {
+      ()
+    }
+  };
+  class TestTrait extends Object with action.TestTrait1 with action.TestTrait2 {
+    override def test(): Unit = TestTrait.super.test();
+    def <init>(): action.TestTrait = {
+      TestTrait.super.<init>();
+      TestTrait.super./*TestTrait1*/$init$();
+      TestTrait.super./*TestTrait2*/$init$();
+      ()
+    }
+  };
+  object AbstractFieldsDemo extends Object with App {
+    @deprecatedOverriding("args should not be overridden", "2.11.0") protected def args(): Array[String] = AbstractFieldsDemo.super.args();
+    @deprecated("the delayedInit mechanism will disappear", "2.11.0") override def delayedInit(body: Function0): Unit = AbstractFieldsDemo.super.delayedInit(body);
+    @deprecatedOverriding("main should not be overridden", "2.11.0") def main(args: Array[String]): Unit = AbstractFieldsDemo.super.main(args);
+    @deprecatedOverriding("executionStart should not be overridden", "2.11.0") override <stable> <accessor> def executionStart(): Long = (AbstractFieldsDemo.this.executionStart: Long);
+    private[this] val executionStart: Long = _;
+    override <accessor> def _args(): Array[String] = (AbstractFieldsDemo.this._args: Array[String]);
+    private[this] var _args: Array[String] = _;
+    override <accessor> def _args_=(x$1: Array[String]): Unit = AbstractFieldsDemo.this._args = (x$1: Array[String]);
+    override <stable> <accessor> def initCode(): scala.collection.mutable.ListBuffer = (AbstractFieldsDemo.this.initCode: scala.collection.mutable.ListBuffer);
+    private[this] val initCode: scala.collection.mutable.ListBuffer = _;
+    override <accessor> protected[this] def scala$App$_setter_$executionStart_=(x$1: Long): Unit = AbstractFieldsDemo.this.executionStart = (x$1: Long);
+    final override <accessor> protected[this] def initCode_=(x$1: scala.collection.mutable.ListBuffer): Unit = AbstractFieldsDemo.this.initCode = (x$1: scala.collection.mutable.ListBuffer);
+    private[this] val t: action.TestTrait = _;
+    <stable> <accessor> def t(): action.TestTrait = AbstractFieldsDemo.this.t;
+    final <synthetic> def delayedEndpoint$action$AbstractFieldsDemo$1: Unit = {
+      AbstractFieldsDemo.this.t = new action.TestTrait();
+      AbstractFieldsDemo.this.t().test();
+      ()
+    };
+    def <init>(): action.AbstractFieldsDemo.type = {
+      AbstractFieldsDemo.super.<init>();
+      AbstractFieldsDemo.super./*App*/$init$();
+      AbstractFieldsDemo.this.delayedInit(new action.AbstractFieldsDemo$delayedInit$body(AbstractFieldsDemo.this));
+      ()
+    }
+  };
+  final <synthetic> class AbstractFieldsDemo$delayedInit$body extends runtime.AbstractFunction0 {
+    <paramaccessor> private[this] val $outer: action.AbstractFieldsDemo.type = _;
+    final def apply(): Object = {
+      AbstractFieldsDemo$delayedInit$body.this.$outer.delayedEndpoint$action$AbstractFieldsDemo$1();
+      scala.runtime.BoxedUnit.UNIT
+    };
+    def <init>($outer: action.AbstractFieldsDemo.type): action.AbstractFieldsDemo$delayedInit$body = {
+      if ($outer.eq(null))
+        throw null
+      else
+        AbstractFieldsDemo$delayedInit$body.this.$outer = $outer;
+      AbstractFieldsDemo$delayedInit$body.super.<init>();
+      ()
+    }
+  }
+}
+
+[[syntax trees at end of                   cleanup]] // Trait.scala: tree is unchanged since mixin
+[[syntax trees at end of                delambdafy]] // Trait.scala: tree is unchanged since mixin
+[[syntax trees at end of                       jvm]] // Trait.scala: tree is unchanged since mixin
